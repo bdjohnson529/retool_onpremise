@@ -93,6 +93,7 @@ services:
 
   # Retool's storage database. See these docs to migrate to an externally hosted database: https://docs.retool.com/docs/configuring-retools-storage-database
   postgres:
+    disable: true
     image: 'postgres:11.13'
     env_file: docker.env
     networks:
@@ -112,7 +113,7 @@ services:
     restart: always
     env_file: ./docker.env
     environment:
-      STAGE: 'local' # <- Change 'local' to 'production' to use a LetsEncrypt signed SSL cert
+      STAGE: 'production' # <- Change 'local' to 'production' to use a LetsEncrypt signed SSL cert
       KEEPALIVE_TIMEOUT: 605
       PROXY_CONNECT_TIMEOUT: 600
       PROXY_SEND_TIMEOUT: 600
